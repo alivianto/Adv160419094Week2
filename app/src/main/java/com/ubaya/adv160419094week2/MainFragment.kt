@@ -32,5 +32,10 @@ class MainFragment : Fragment() {
             // Jalankan action tersebut
             Navigation.findNavController(it).navigate(action)
         }
+        // ntuk memunculkan dialog, tidak perlu AlertDialog, cukup panggil action saja
+        buttonOptions.setOnClickListener {
+            val action = MainFragmentDirections.actionOptionsFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 }
