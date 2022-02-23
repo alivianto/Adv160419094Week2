@@ -28,9 +28,29 @@ class GameFragment : Fragment() {
             val playerName = GameFragmentArgs.fromBundle(requireArguments()).playerName
             textTurn.text = "$playerName's Turn"
         }
-        buttonBack.setOnClickListener {
-            val action = GameFragmentDirections.actionMainFragment()
-            Navigation.findNavController(it).navigate(action)
+
+        var score = 0
+        var result = randomQuestions()
+        buttonSubmit.setOnClickListener {
+            var answer: Int = editAnswer.text.toString().toInt()
+
+            if (result == answer){
+                score += 1
+                textScr.text = "Score: $score"
+                result = randomQuestions()
+                editAnswer.setText("")
+            } else {
+                val action = GameFragmentDirections.actionResultFragment(score)
+                Navigation.findNavController(it).navigate(action)
+            }
         }
+    }
+
+    fun randomQuestions(): Int{
+        var number1 = (0..100).random()
+        var number2 = (0..100).random()
+        textQuestions.text = "$number1 + $number2"
+        var result = number1 + number2
+        return result
     }
 }

@@ -19,14 +19,57 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonBack"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonSubmit"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Back"
-        app:icon="@drawable/ic_baseline_arrow_back_24"
+        android:text="Submit Answer"
+        app:layout_constraintEnd_toEndOf="@+id/inputAnswer"
+        app:layout_constraintStart_toStartOf="@+id/inputAnswer"
+        app:layout_constraintTop_toBottomOf="@+id/inputAnswer" />
+
+    <TextView
+        android:id="@+id/textQuestions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="00 + 00"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTurn" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputAnswer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="100dp"
+        android:hint="Your Answer"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textQuestions">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textScr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Score: 0"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSubmit"
+        app:layout_constraintStart_toStartOf="@+id/buttonSubmit"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSubmit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
